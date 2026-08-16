@@ -1,0 +1,25 @@
+# CMake and compiler output
+build/
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+compile_commands.json
+Testing/
+*.a
+*.o
+*.obj
+
+# IDE / OS
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+
+# LaTeX intermediates (docs PDFs are committed, aux files are not)
+*.aux
+*.log
+*.toc
+*.out
+*.synctex.gz

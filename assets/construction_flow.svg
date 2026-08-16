@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600" role="img" aria-labelledby="title desc">
+  <title id="title">Two-stage Matousek partition construction</title>
+  <desc id="desc">Stage 1 builds the finite test set once in the dual plane. Stage 2 repeatedly builds a fresh weighted cutting, selects a dense cell, removes one point group, and increases weights of crossing test lines.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#57606a"/>
+    </marker>
+    <style>
+      .heading { font: 700 25px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #1f2328; }
+      .label { font: 600 18px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #1f2328; }
+      .body { font: 16px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #1f2328; }
+      .note { font: 15px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #57606a; }
+      .stage1 { fill: #ddf4ff; stroke: #54aeff; stroke-width: 2; }
+      .stage2 { fill: #fff8c5; stroke: #d4a72c; stroke-width: 2; }
+      .node { fill: #ffffff; stroke: #8c959f; stroke-width: 1.5; }
+      .arrow { fill: none; stroke: #57606a; stroke-width: 2; marker-end: url(#arrow); }
+    </style>
+  </defs>
+
+  <rect x="20" y="20" width="1160" height="220" rx="14" class="stage1"/>
+  <text x="48" y="58" class="heading">Stage 1 · Build the test set once</text>
+  <text x="48" y="84" class="note">Dual plane</text>
+
+  <rect x="48" y="112" width="270" height="92" rx="10" class="node"/>
+  <text x="183" y="147" text-anchor="middle" class="label">Dualize the points</text>
+  <text x="183" y="176" text-anchor="middle" class="body">points → dual lines</text>
+
+  <path d="M318 158 H414" class="arrow"/>
+
+  <rect x="424" y="112" width="270" height="92" rx="10" class="node"/>
+  <text x="559" y="147" text-anchor="middle" class="label">Build one cutting</text>
+  <text x="559" y="176" text-anchor="middle" class="body">from the dual lines</text>
+
+  <path d="M694 158 H790" class="arrow"/>
+
+  <rect x="800" y="112" width="332" height="92" rx="10" class="node"/>
+  <text x="966" y="143" text-anchor="middle" class="label">Dualize every vertex back</text>
+  <text x="966" y="172" text-anchor="middle" class="body">finite test-line set Q</text>
+  <text x="966" y="194" text-anchor="middle" class="note">at most r lines</text>
+
+  <path d="M966 204 V272 H184 V330" class="arrow"/>
+  <text x="588" y="263" text-anchor="middle" class="note">Q is reused in every partition round</text>
+
+  <rect x="20" y="294" width="1160" height="286" rx="14" class="stage2"/>
+  <text x="48" y="332" class="heading">Stage 2 · Peel off one point group per round</text>
+  <text x="48" y="358" class="note">Primal plane · repeat about r times</text>
+
+  <rect x="48" y="390" width="238" height="104" rx="10" class="node"/>
+  <text x="167" y="422" text-anchor="middle" class="label">Fresh weighted cutting</text>
+  <text x="167" y="451" text-anchor="middle" class="body">rebuild from Q</text>
+  <text x="167" y="477" text-anchor="middle" class="note">weights reflect prior crossings</text>
+
+  <path d="M286 442 H326" class="arrow"/>
+
+  <rect x="336" y="390" width="238" height="104" rx="10" class="node"/>
+  <text x="455" y="422" text-anchor="middle" class="label">Choose a dense cell</text>
+  <text x="455" y="451" text-anchor="middle" class="body">guaranteed to contain</text>
+  <text x="455" y="477" text-anchor="middle" class="note">at least s remaining points</text>
+
+  <path d="M574 442 H614" class="arrow"/>
+
+  <rect x="624" y="390" width="238" height="104" rx="10" class="node"/>
+  <text x="743" y="422" text-anchor="middle" class="label">Create one group</text>
+  <text x="743" y="451" text-anchor="middle" class="body">take exactly s points</text>
+  <text x="743" y="477" text-anchor="middle" class="note">store its containing triangle</text>
+
+  <path d="M862 442 H902" class="arrow"/>
+
+  <rect x="912" y="390" width="220" height="104" rx="10" class="node"/>
+  <text x="1022" y="422" text-anchor="middle" class="label">Update weights</text>
+  <text x="1022" y="451" text-anchor="middle" class="body">double the weight of</text>
+  <text x="1022" y="477" text-anchor="middle" class="note">each crossing test line</text>
+
+  <path d="M1022 494 V540 H167 V504" class="arrow"/>
+  <text x="595" y="563" text-anchor="middle" class="note">repeat with a fresh cutting while at least 2s points remain; the final remainder becomes one group</text>
+</svg>
