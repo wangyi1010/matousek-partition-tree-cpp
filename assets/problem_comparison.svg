@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="480" viewBox="0 0 1200 480" role="img" aria-labelledby="title desc">
+  <title id="title">Brute-force and partition-tree halfplane counting</title>
+  <desc id="desc">The left panel checks every point. The right panel counts complete groups and inspects only groups crossed by the query boundary.</desc>
+  <defs>
+    <style>
+      .heading { font: 700 25px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #172033; }
+      .panel-title { font: 700 21px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #172033; }
+      .label { font: 500 15px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #526079; }
+      .small { font: 600 13px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #526079; }
+      .point { fill: #26344d; }
+    </style>
+    <g id="points">
+      <circle class="point" cx="75" cy="92" r="5"/><circle class="point" cx="132" cy="72" r="5"/>
+      <circle class="point" cx="195" cy="103" r="5"/><circle class="point" cx="260" cy="69" r="5"/>
+      <circle class="point" cx="331" cy="96" r="5"/><circle class="point" cx="412" cy="78" r="5"/>
+      <circle class="point" cx="475" cy="110" r="5"/><circle class="point" cx="103" cy="145" r="5"/>
+      <circle class="point" cx="168" cy="165" r="5"/><circle class="point" cx="229" cy="139" r="5"/>
+      <circle class="point" cx="296" cy="157" r="5"/><circle class="point" cx="369" cy="141" r="5"/>
+      <circle class="point" cx="444" cy="168" r="5"/><circle class="point" cx="68" cy="221" r="5"/>
+      <circle class="point" cx="137" cy="207" r="5"/><circle class="point" cx="208" cy="235" r="5"/>
+      <circle class="point" cx="272" cy="211" r="5"/><circle class="point" cx="346" cy="232" r="5"/>
+      <circle class="point" cx="419" cy="216" r="5"/><circle class="point" cx="489" cy="244" r="5"/>
+      <circle class="point" cx="97" cy="289" r="5"/><circle class="point" cx="158" cy="310" r="5"/>
+      <circle class="point" cx="223" cy="280" r="5"/><circle class="point" cx="289" cy="303" r="5"/>
+      <circle class="point" cx="361" cy="282" r="5"/><circle class="point" cx="432" cy="305" r="5"/>
+      <circle class="point" cx="483" cy="286" r="5"/><circle class="point" cx="121" cy="345" r="5"/>
+      <circle class="point" cx="243" cy="346" r="5"/><circle class="point" cx="392" cy="344" r="5"/>
+    </g>
+    <g id="inspection-rings" fill="none" stroke="#e35d6a" stroke-width="2" opacity="0.75">
+      <circle cx="75" cy="92" r="10"/><circle cx="132" cy="72" r="10"/><circle cx="195" cy="103" r="10"/>
+      <circle cx="260" cy="69" r="10"/><circle cx="331" cy="96" r="10"/><circle cx="412" cy="78" r="10"/>
+      <circle cx="475" cy="110" r="10"/><circle cx="103" cy="145" r="10"/><circle cx="168" cy="165" r="10"/>
+      <circle cx="229" cy="139" r="10"/><circle cx="296" cy="157" r="10"/><circle cx="369" cy="141" r="10"/>
+      <circle cx="444" cy="168" r="10"/><circle cx="68" cy="221" r="10"/><circle cx="137" cy="207" r="10"/>
+      <circle cx="208" cy="235" r="10"/><circle cx="272" cy="211" r="10"/><circle cx="346" cy="232" r="10"/>
+      <circle cx="419" cy="216" r="10"/><circle cx="489" cy="244" r="10"/><circle cx="97" cy="289" r="10"/>
+      <circle cx="158" cy="310" r="10"/><circle cx="223" cy="280" r="10"/><circle cx="289" cy="303" r="10"/>
+      <circle cx="361" cy="282" r="10"/><circle cx="432" cy="305" r="10"/><circle cx="483" cy="286" r="10"/>
+      <circle cx="121" cy="345" r="10"/><circle cx="243" cy="346" r="10"/><circle cx="392" cy="344" r="10"/>
+    </g>
+  </defs>
+
+  <rect width="1200" height="480" rx="18" fill="#f7f9fc"/>
+  <text class="heading" x="600" y="38" text-anchor="middle">One halfplane query, two ways to count</text>
+
+  <g transform="translate(25 58)">
+    <rect width="555" height="390" rx="16" fill="#ffffff" stroke="#d9e0ea"/>
+    <text class="panel-title" x="24" y="34">Brute force</text>
+    <text class="label" x="24" y="57">Inspect every point individually</text>
+    <g transform="translate(16 38)">
+      <path d="M30 285 L515 70 L515 20 L30 20 Z" fill="#dcecff" opacity="0.75"/>
+      <line x1="30" y1="285" x2="515" y2="70" stroke="#2878c8" stroke-width="4"/>
+      <text class="small" x="395" y="52" fill="#2878c8">query halfplane</text>
+      <use href="#points"/><use href="#inspection-rings"/>
+    </g>
+    <circle cx="171" cy="367" r="8" fill="none" stroke="#e35d6a" stroke-width="2"/>
+    <text class="small" x="188" y="372">every point is checked</text>
+  </g>
+
+  <g transform="translate(620 58)">
+    <rect width="555" height="390" rx="16" fill="#ffffff" stroke="#d9e0ea"/>
+    <text class="panel-title" x="24" y="34">Partition tree</text>
+    <text class="label" x="24" y="57">Count whole groups; inspect only boundary groups</text>
+    <g transform="translate(16 38)">
+      <path d="M30 285 L515 70 L515 20 L30 20 Z" fill="#dcecff" opacity="0.75"/>
+      <polygon points="46,57 174,44 150,151 54,176" fill="#65c18c" opacity="0.28" stroke="#2b9b62" stroke-width="3"/>
+      <polygon points="181,43 329,45 300,157 151,151" fill="#65c18c" opacity="0.28" stroke="#2b9b62" stroke-width="3"/>
+      <polygon points="328,45 505,54 456,84 300,145" fill="#65c18c" opacity="0.28" stroke="#2b9b62" stroke-width="3"/>
+      <polygon points="54,176 151,151 231,249 55,283" fill="#f4b860" opacity="0.32" stroke="#d8861f" stroke-width="3"/>
+      <polygon points="151,151 300,145 355,252 231,249" fill="#f4b860" opacity="0.32" stroke="#d8861f" stroke-width="3"/>
+      <polygon points="300,145 456,84 505,267 355,252" fill="#f4b860" opacity="0.32" stroke="#d8861f" stroke-width="3"/>
+      <polygon points="55,283 231,249 267,360 78,356" fill="#c9d1dd" opacity="0.4" stroke="#8896aa" stroke-width="3"/>
+      <polygon points="231,249 505,267 479,359 267,360" fill="#c9d1dd" opacity="0.4" stroke="#8896aa" stroke-width="3"/>
+      <line x1="30" y1="285" x2="515" y2="70" stroke="#2878c8" stroke-width="4"/>
+      <text class="small" x="395" y="52" fill="#2878c8">query halfplane</text>
+      <use href="#points"/>
+    </g>
+    <g transform="translate(72 365)">
+      <rect width="13" height="13" rx="3" fill="#65c18c"/><text class="small" x="21" y="12">count group</text>
+      <rect x="130" width="13" height="13" rx="3" fill="#f4b860"/><text class="small" x="151" y="12">inspect group</text>
+      <rect x="278" width="13" height="13" rx="3" fill="#c9d1dd"/><text class="small" x="299" y="12">skip group</text>
+    </g>
+  </g>
+</svg>
