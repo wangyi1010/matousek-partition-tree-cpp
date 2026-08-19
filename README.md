@@ -25,19 +25,19 @@ boundary.
 
 For any fixed positive approximation parameter, the theorem gives
 
-$$
+```math
 T_{\mathrm{query}}(n)
 =
 O\!\left(n^{1/2+\varepsilon}\right)
-$$
+```
 
 and
 
-$$
+```math
 T_{\mathrm{build}}(n)
 =
 O(n\log n).
-$$
+```
 
 [Read the complete mathematical derivation →](docs/two_dimensional_partition_theorem_math.md)
 
