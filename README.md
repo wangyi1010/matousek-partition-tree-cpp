@@ -22,26 +22,26 @@ boundary.
 
 ### Core idea
 
-At a node with `n` points, choose a fixed branching factor `r`. Construct about
-`r` child groups, each containing about `n / r` points, and assign each group a
+At a node with $n$ points, choose a fixed branching factor $r$. Construct about
+$r$ child groups, each containing about $n / r$ points, and assign each group a
 containing triangle. Recursively apply the same rule to every child group.
 
-The key theorem guarantee is that every line crosses only `O(sqrt(r))` of the
-child triangles. Therefore a halfplane query continues into only `O(sqrt(r))`
-children, even though the node has about `r` children.
+The key theorem guarantee is that every line crosses only $O(\sqrt r)$ of the
+child triangles. Therefore a halfplane query continues into only $O(\sqrt r)$
+children, even though the node has about $r$ children.
 
-Each crossed child contains at most `2n / r` points. A triangle wholly inside
+Each crossed child contains at most $2n / r$ points. A triangle wholly inside
 the halfplane contributes its cached count; a wholly outside triangle is
 skipped.
 
 This gives the recurrence
 
-```
-T(n) = O(r) + O(sqrt(r)) T(2n / r),
-```
+$$
+T(n) = O(r) + O(\sqrt r)\,T\left(\frac{2n}{r}\right).
+$$
 
-and, for a sufficiently large fixed `r`, the theoretical query bound
-`O(n^(1/2 + epsilon))`.
+and, for a sufficiently large fixed $r$, the theoretical query bound
+$O\!\left(n^{1/2+\varepsilon}\right)$.
 
 The duality, finite test set, weighted cuttings, and exponential reweighting
 in this repository are the machinery used to prove the key line-crossing
@@ -62,28 +62,28 @@ guarantee.
 For any fixed positive slack parameter, the partition theorem gives the
 theoretical query bound
 
-```math
+$$
 T_{\mathrm{query}}(n)
 =
 O\!\left(n^{1/2+\varepsilon}\right).
-```
+$$
 
 Matoušek's tighter theorem-level preprocessing result is
 
-```math
+$$
 T_{\mathrm{build}}(n)
 =
 O(n\log n).
-```
+$$
 
 The direct level-by-level construction analysis documented in this repository
 instead gives
 
-```math
+$$
 T_{\mathrm{build}}(n)
 =
 O\!\left(n^{1+\delta}\right)
-```
+$$
 
 for any fixed positive slack parameter. These are asymptotic theorem-level
 bounds, not measured wall-clock guarantees for this implementation. Exact
