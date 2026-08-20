@@ -36,9 +36,7 @@ skipped.
 
 This gives the recurrence
 
-$$
-T(n) = O(r) + O(\sqrt r)\,T\left(\frac{2n}{r}\right).
-$$
+$$T(n) = O(r) + O(\sqrt r)\,T\left(\frac{2n}{r}\right).$$
 
 and, for a sufficiently large fixed $r$, the theoretical query bound
 $O\!\left(n^{1/2+\varepsilon}\right)$.
@@ -62,28 +60,16 @@ guarantee.
 For any fixed positive slack parameter, the partition theorem gives the
 theoretical query bound
 
-$$
-T_{\mathrm{query}}(n)
-=
-O\!\left(n^{1/2+\varepsilon}\right).
-$$
+$$T_{\mathrm{query}}(n) = O\!\left(n^{1/2+\varepsilon}\right).$$
 
 Matoušek's tighter theorem-level preprocessing result is
 
-$$
-T_{\mathrm{build}}(n)
-=
-O(n\log n).
-$$
+$$T_{\mathrm{build}}(n) = O(n\log n).$$
 
 The direct level-by-level construction analysis documented in this repository
 instead gives
 
-$$
-T_{\mathrm{build}}(n)
-=
-O\!\left(n^{1+\delta}\right)
-$$
+$$T_{\mathrm{build}}(n) = O\!\left(n^{1+\delta}\right).$$
 
 for any fixed positive slack parameter. These are asymptotic theorem-level
 bounds, not measured wall-clock guarantees for this implementation. Exact
