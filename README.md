@@ -20,6 +20,33 @@ boundary.
 
 ## 2. The algorithm
 
+### Core idea
+
+At a node with `n` points, choose a fixed branching factor `r`. Construct about
+`r` child groups, each containing about `n / r` points, and assign each group a
+containing triangle. Recursively apply the same rule to every child group.
+
+The key theorem guarantee is that every line crosses only `O(sqrt(r))` of the
+child triangles. Therefore a halfplane query continues into only `O(sqrt(r))`
+children, even though the node has about `r` children.
+
+Each crossed child contains at most `2n / r` points. A triangle wholly inside
+the halfplane contributes its cached count; a wholly outside triangle is
+skipped.
+
+This gives the recurrence
+
+```
+T(n) = O(r) + O(sqrt(r)) T(2n / r),
+```
+
+and, for a sufficiently large fixed `r`, the theoretical query bound
+`O(n^(1/2 + epsilon))`.
+
+The duality, finite test set, weighted cuttings, and exponential reweighting
+in this repository are the machinery used to prove the key line-crossing
+guarantee.
+
 1. Convert the input points into lines using point-line duality.
 2. Build a verified weighted cutting and derive a finite test set.
 3. Use exponential reweighting to extract small point groups contained in
