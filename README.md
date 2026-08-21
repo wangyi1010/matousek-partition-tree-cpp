@@ -14,6 +14,9 @@ halfplane query can quickly answer one question:
 
 > How many input points lie inside this halfplane?
 
+The query supplies a boundary line and the side of that line to keep; this
+selected halfplane is the target region.
+
 A brute-force query checks every point. A partition tree instead counts whole
 groups when possible and examines only the groups crossed by the query
 boundary.
